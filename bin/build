@@ -1,0 +1,18 @@
+#!/bin/bash
+set -e
+
+docker build --build-arg RUBY_VERSION="2.2" .
+docker tag $(docker build --build-arg RUBY_VERSION="2.2" -q .) geppettoapps/ruby-runtime:2.2-1
+docker push geppettoapps/ruby-runtime:2.2-1
+
+docker build --build-arg RUBY_VERSION="2.3" .
+docker tag $(docker build --build-arg RUBY_VERSION="2.3" -q .) geppettoapps/ruby-runtime:2.3-1
+docker push geppettoapps/ruby-runtime:2.3-1
+
+docker build --build-arg RUBY_VERSION="2.4" .
+docker tag $(docker build --build-arg RUBY_VERSION="2.4" -q .) geppettoapps/ruby-runtime:2.4-1
+docker push geppettoapps/ruby-runtime:2.4-1
+
+docker build --build-arg RUBY_VERSION="2.5" .
+docker tag $(docker build --build-arg RUBY_VERSION="2.5" -q .) geppettoapps/ruby-runtime:2.5-1
+docker push geppettoapps/ruby-runtime:2.5-1
